@@ -8,6 +8,11 @@
         class="{{ with .Params.coverimage }}hasCover{{ end }}
                {{ if eq .Params.covermeta "out" }}hasCoverMetaOut{{ else }}hasCoverMetaIn{{ end }}
                {{ with .Params.coverCaption }}hasCoverCaption{{ end }}">
+        <section class="main-content-wrap">
+          <h1>{{ .Title }}</h1>
+          {{ .Content }}
+        </section>
+        <br />
         <section class="postShorten-group main-content-wrap">
           {{/* Iterate only over pages of the same type as this section. */}}
           {{ $paginator := .Paginate (where .Data.Pages "Type" .Type) }}
